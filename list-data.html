@@ -59,14 +59,16 @@
                 "email": "budi@gmail.com"
             }
         ];
-        var output="<table><thead><tr><th>Name</th><th>Email</th></thead><tbody>";
-        for (var i in data){
-            output+="<tr><td>" + data[i].nama + "</td><td>" + data[i].email + "</td></tr>";
+        if(data){
+            var output="<table><thead><tr><th>Name</th><th>Email</th></thead><tbody>";
+            for (var i in data){
+                output+="<tr><td>" + data[i].nama + "</td><td>" + data[i].email + "</td></tr>";
+            }
+                output+="</tbody></table>";
+            
+                displayResources.html(output);
+            $("table").addClass("table");
         }
-            output+="</tbody></table>";
-        
-            displayResources.html(output);
-        $("table").addClass("table");
     });
 </script>
 
