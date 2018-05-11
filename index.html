@@ -29,8 +29,8 @@
             <a class="brand" href="#">Project name</a>
             <div class="nav-collapse collapse">
               <ul class="nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li class="active"><a href="tambah-data.html">Tambah Data</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
@@ -49,8 +49,32 @@
           </div><!-- /.navbar-inner -->
         </div><!-- /.navbar -->
 
+        <form>
+            <input type="text" id="name" placeholder="Name">
+            <input type="text" id="email" placeholder="Email Address">
+            <input type="button" class="add-row" value="Add Row">
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <th>Select</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="checkbox" name="record"></td>
+                    <td>Peter Parker</td>
+                    <td>peterparker@mail.com</td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="button" class="delete-row">Delete Row</button>
+
       </div> <!-- /.container -->
     </div><!-- /.navbar-wrapper -->
+
 
 
 
