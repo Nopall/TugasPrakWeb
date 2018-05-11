@@ -33,23 +33,41 @@
 
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript">
-    $(document).ready(function(){
-        $(".add-row").click(function(){
-            var name = $("#name").val();
-            var email = $("#email").val();
-            var markup = "<tr><td><input type='checkbox' name='record'></td><td>" + name + "</td><td>" + email + "</td></tr>";
-            $("table tbody").append(markup);
-        });
+    $(document).ready(function () {
+        // $('#retrieve-resources').click(function () {
+        var displayResources = $('#display-resources');
+        displayResources.text('Loading data from JSON source...');
+        var data = [
+            {
+                "nama": "Imron",
+                "email": "imron@gmail.com"
+            },
+            {
+                "nama": "Yopi",
+                "email": "Yopi@gmil.com"
+            },
+            {
+                "nama": "Adtit",
+                "email": "adit@gmail.com"
+            },
+            {
+                "nama": "Rosi",
+                "email": "rosi@gmail.com"
+            },
+            {
+                "nama": "Budi",
+                "email": "budi@gmail.com"
+            }
+        ];
+        var output="<table><thead><tr><th>Name</th><th>Email</th></thead><tbody>";
+        for (var i in data){
+            output+="<tr><td>" + data[i].nama + "</td><td>" + data[i].email + "</td></tr>";
+        }
+            output+="</tbody></table>";
         
-        // Find and remove selected table rows
-        $(".delete-row").click(function(){
-            $("table tbody").find('input[name="record"]').each(function(){
-            	if($(this).is(":checked")){
-                    $(this).parents("tr").remove();
-                }
-            });
-        });
-    });    
+            displayResources.html(output);
+        $("table").addClass("table");
+    });
 </script>
 
   </head>
@@ -73,34 +91,16 @@
               <ul class="nav">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="tambah-data.html">Tambah Data</a></li>
-                <li class="active"><a href="list-data.html">List Datas</a></li>
+                <li class="active"><a href="list-data.html">List Data</a></li>
               </ul>
             </div><!--/.nav-collapse -->
           </div><!-- /.navbar-inner -->
         </div><!-- /.navbar -->
 
-        <form>
-            <input type="text" id="name" placeholder="Name">
-            <input type="text" id="email" placeholder="Email Address">
-            <input type="button" class="add-row" value="Add Row">
-        </form>
-        <table>
-            <thead>
-                <tr>
-                    <th>Select</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><input type="checkbox" name="record"></td>
-                    <td>AKhmad Naufal</td>
-                    <td>nopalakhmad@mail.com</td>
-                </tr>
-            </tbody>
-        </table>
-        <button type="button" class="delete-row">Delete Row</button>
+        <div id="display-resources">
+        </div>
+            <!-- <a href="#" class="btn btn-primary" id="retrieve-resources">Retrieve List</a> -->
+            <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
 
       </div> <!-- /.container -->
     </div><!-- /.navbar-wrapper -->
